@@ -9,7 +9,8 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   const config = new DocumentBuilder().setTitle('Nest API').build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/', app, document);
+  SwaggerModule.setup('/docs', app, document);
+  app.setGlobalPrefix('api');
 
   await app.listen(3000);
 }
